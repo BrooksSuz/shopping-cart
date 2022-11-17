@@ -8,14 +8,10 @@ import { useState } from "react";
 const App = () => {
   const [cartAmount, setCartAmount] = useState(0);
 
-  const incrementCartAmount = () => {
-    setCartAmount(cartAmount + 1);
-  };
-
   return (
     <BrowserRouter>
       <div className="app">
-        <Navbar cartAmount={cartAmount} setCartAmount={incrementCartAmount} />
+        <Navbar cartAmount={cartAmount} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/shoppage" element={<ShopPage />} />

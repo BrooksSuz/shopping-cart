@@ -1,9 +1,8 @@
-import NavCart from "./Shop/NavCart";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
 const Navbar = (props) => {
-  const { cartAmount, setCartAmount } = props;
+  const { cartAmount } = props;
   return (
     <nav>
       <ul>
@@ -23,7 +22,6 @@ const Navbar = (props) => {
           </Link>
         </li>
       </ul>
-      <NavCart cartAmount={cartAmount} setCartAmount={setCartAmount} />
     </nav>
   );
 };
