@@ -5,6 +5,7 @@ const Card = () => {
 
   return (
     <div className="card">
+      <h1></h1>
       <label htmlFor="amount-of-product">Number of Items:
         <input
           ref={inputAmountOfProduct}
