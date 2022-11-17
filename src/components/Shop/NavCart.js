@@ -1,10 +1,9 @@
-const NavCart = (props) => {
-  const { cartAmount, setCartAmount } = props;
+import "../../styles/NavCart.css";
 
+const NavCart = (props) => {
   return (
-    <div>
-      <div onClick={setCartAmount}>{cartAmount}</div>
-    </div>
+    <>
+    </>
   );
 };
 

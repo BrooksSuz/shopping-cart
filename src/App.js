@@ -1,6 +1,7 @@
 import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar";
 import ShopPage from "./components/Shop/ShopPage";
+import ShoppingCart from "./components/Shop/ShoppingCart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/shoppage" element={<ShopPage />} />
+          <Route path="/shoppingcart" element={<ShoppingCart />} />
         </Routes>
       </div>
     </BrowserRouter>

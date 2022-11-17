@@ -7,12 +7,21 @@ const Navbar = (props) => {
   return (
     <nav>
       <ul>
-        <Link to="/">
-          <li>Home</li>
-        </Link>
-        <Link to="/shoppage">
-          <li>Shop</li>
-        </Link>
+        <li>
+          <Link to="/">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/shoppage">
+            Shop
+          </Link>
+        </li>
+        <li>
+          <Link to="/shoppingcart">
+            Shopping Cart ({cartAmount})
+          </Link>
+        </li>
       </ul>
       <NavCart cartAmount={cartAmount} setCartAmount={setCartAmount} />
     </nav>
