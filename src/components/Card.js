@@ -5,11 +5,13 @@ const Card = () => {
   const inputAmountOfProduct = useRef();
 
   const handleBlur = () => {
-    const amount = parseInt(inputAmountOfProduct.current.value);
+    const amount = Number(inputAmountOfProduct.current.value);
     if (amount >= amountOfItems) {
       setAmountOfItems(amountOfItems + amount);
+      inputAmountOfProduct.current.value = '';
     } else if (amount < amountOfItems) {
       setAmountOfItems(amountOfItems - amount);
+      inputAmountOfProduct.current.value = '';
     }
   };
 
