@@ -1,21 +1,37 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 
 const Card = () => {
+  const [amountOfItems, setAmountOfItems] = useState(0)
   const inputAmountOfProduct = useRef();
+
+  const handleBlur = () => {
+    const amount = parseInt(inputAmountOfProduct.current.value);
+    if (amount >= amountOfItems) {
+      setAmountOfItems(amountOfItems + amount);
+    } else if (amount < amountOfItems) {
+      setAmountOfItems(amountOfItems - amount);
+    }
+  };
+
+  const onClickDecrement = () => setAmountOfItems(amountOfItems - 1);
+
+  const onClickIncrement = () => setAmountOfItems(amountOfItems + 1);
 
   return (
     <div className="card">
-      <h1></h1>
+      <h2>This is an Item</h2>
       <label htmlFor="amount-of-product">Number of Items:
         <input
           ref={inputAmountOfProduct}
           type="text"
           id="amount-of-product"
-          name="amount-of-product">
+          name="amount-of-product"
+          onBlur={handleBlur}>
         </input>
       </label>
-      <button>-</button>
-      <button>+</button>
+      <button type="button" onClick={onClickDecrement}>-</button>
+      <button type="button" onClick={onClickIncrement}>+</button>
+      <span>{amountOfItems}</span>
     </div>
   );
 };
