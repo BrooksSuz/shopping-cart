@@ -1,6 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const Card = () => {
+const Card = (props) => {
+  const { totalItems, setTotalItems } = props;
+
   const [amountOfItems, setAmountOfItems] = useState(0)
   const inputAmountOfProduct = useRef();
 
@@ -18,6 +20,10 @@ const Card = () => {
   const onClickDecrement = () => setAmountOfItems(amountOfItems - 1);
 
   const onClickIncrement = () => setAmountOfItems(amountOfItems + 1);
+
+  useEffect(() => {
+    setTotalItems(totalItems + amountOfItems);
+  });
 
   return (
     <div className="card">

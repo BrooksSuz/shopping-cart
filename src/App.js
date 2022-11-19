@@ -14,7 +14,7 @@ const App = () => {
         <Navbar cartAmount={cartAmount} />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/shoppage" element={<ShopPage />} />
+          <Route path="/shoppage" element={<ShopPage setCartAmount={setCartAmount} />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />
         </Routes>
       </div>

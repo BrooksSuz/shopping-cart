@@ -1,14 +1,17 @@
 import Card from "../Card";
 import { useState, useEffect } from "react";
 
-const ShopPage = () => {
-  const [arrCards, setArrCards] = useState(new Array(12));
+const ShopPage = (props) => {
+  const { setCartAmount } = props;
+
+  const [totalItems, setTotalItems] = useState(0);
+  const [arrCards] = useState(
+    Array.from({ length: 3 }, (_, i) => <Card key={i} totalItems={totalItems} setTotalItems={setTotalItems} />)
+  );
 
   useEffect(() => {
-    setArrCards(arrCards.map(current => {
-      current = <Card />
-    }));
-  }, []);
+    setCartAmount(totalItems);
+  }, [totalItems, setCartAmount]);
 
   return (
     <div className="shop-page">
