@@ -5,9 +5,7 @@ const ShopPage = (props) => {
   const { setCartAmount } = props;
 
   const [totalItems, setTotalItems] = useState(0);
-  const [arrCards] = useState(
-    Array.from({ length: 3 }, (_, i) => <Card key={i} totalItems={totalItems} setTotalItems={setTotalItems} />)
-  );
+  const [arrCards] = useState(Array.from({ length: 3 }, (_, i) => <Card totalItems={totalItems} setTotalItems={setTotalItems} key={i} />));
 
   useEffect(() => {
     setCartAmount(totalItems);

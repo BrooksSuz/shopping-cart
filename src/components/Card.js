@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 const Card = (props) => {
-  const { totalItems, setTotalItems } = props;
+  const { setTotalItems } = props;
 
   const [amountOfItems, setAmountOfItems] = useState(0)
   const inputAmountOfProduct = useRef();
@@ -17,13 +17,17 @@ const Card = (props) => {
     }
   };
 
-  const onClickDecrement = () => setAmountOfItems(amountOfItems - 1);
+  const onClickDecrement = () => {
+    if (amountOfItems > 0) {
+      setAmountOfItems(amountOfItems - 1);
+      setTotalItems(prevVal => prevVal - 1);
+    }
+  };
 
-  const onClickIncrement = () => setAmountOfItems(amountOfItems + 1);
-
-  useEffect(() => {
-    setTotalItems(totalItems + amountOfItems);
-  });
+  const onClickIncrement = () => {
+    setAmountOfItems(amountOfItems + 1);
+    setTotalItems(prevVal => prevVal + 1);
+  }
 
   return (
     <div className="card">
